@@ -55,9 +55,9 @@ int Identidad(int r, int c, int arr[][max]){//Checamos si es que identidad la ma
         for(i=0;i<r;i++){//row
             for(j=0;j<c;j++){//column
 
-                if (i==j && (arr[i][j] != 1)) {
+                if (i==j && (arr[i][j] != 1)) {//Estamso en la diagonal principal
                     flag = 0;
-                } else if (i != j && (arr[i][j] != 0)) {
+                } else if (i != j && (arr[i][j] != 0)) {//FUera d ela diagonal
                     flag = 0;
                 }
     
