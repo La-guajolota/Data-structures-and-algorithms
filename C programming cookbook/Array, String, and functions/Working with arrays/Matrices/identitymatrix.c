@@ -44,26 +44,29 @@ int PrintMatriz(int r, int c, int arr[][max]){//Imprime matriz
 
 int Identidad(int r, int c, int arr[][max]){//Checamos si es que identidad la matriz
 
-    int i,j;
+    int i,j, flag = 1;
 
     if(r != c){//Checamos que la matriz sea cuadrada
         printf("Est no es una matriz identidad. No es una cuadrada\n");
-        return 0;//No es identidad la matriz
-    }
+        flag = 0;//No es identidad la matriz
+    }else{
 
-    for(i=0;i<r;i++){//row
-        for(j=0;j<j;j++){//column
 
-            if (i == j && arr[i][j] != 1) {
-                return 0;
-            } else if (i != j && arr[i][j] != 0) {
-                return 0;
+        for(i=0;i<r;i++){//row
+            for(j=0;j<c;j++){//column
+
+                if (i==j && (arr[i][j] != 1)) {
+                    flag = 0;
+                } else if (i != j && (arr[i][j] != 0)) {
+                    flag = 0;
+                }
+    
             }
-            
         }
+
     }
 
-    return 1;//Si es identidad
+    return flag;//Si es identidad
 }
 
 int main(){
@@ -80,7 +83,8 @@ int main(){
     printf("La matriz es: \n");
     PrintMatriz(r,c,arr);
 
-    if(Identidad(r,c,arr)){
+    bool = Identidad(r,c,arr);
+    if(bool == 1){
 
         printf("Es una matriz identidad\n");
     }else{
