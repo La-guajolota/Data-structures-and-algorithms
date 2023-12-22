@@ -29,5 +29,24 @@ void main(){
     //Similarly, to display the value of i through k, **k has to be used as follows:
     printf("Value of i is %d %d %d %d A traves de i,*(&i),*j,**k \n",i,*(&i),*j,**k);
 
+
+    /*
+        Es importante tener en cuenta que el tamaño devuelto por sizeof() está en bytes 
+        y puede variar según la arquitectura y el compilador utilizados. sizeof() es 
+        especialmente útil al trabajar con asignación dinámica de memoria, manipulación
+        de datos binarios y operaciones relacionadas con el tamaño de los objetos en 
+        memoria.
+    */
+    int *p;
+    printf("sizeof puntero de tipo entero: %d bytes\n",sizeof(p));
+
+
+    /*
+        malloc es una función en C (y en algunos otros lenguajes de programación) que se 
+        utiliza para asignar dinámicamente un bloque de memoria en el montón (heap). Su 
+        nombre proviene de "memory allocation
+    */
+   
+
     system("pause");    
 }
