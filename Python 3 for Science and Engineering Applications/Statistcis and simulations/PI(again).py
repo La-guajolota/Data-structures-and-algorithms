@@ -4,6 +4,22 @@ has a similar objective, but will rely on random draws and statistics instead of
 computation. The basic idea is to repeatedly draw random points and to test whether
 they lie inside or outside a circle. If a sufficient number of points is drawn, Pi can be
 approximated in this way.
+
+The basic idea is as follows. Within a square with side length 2 (thus with an area of 4) an
+incircle with radius 1 is drawn. The area of the circle is r2 *pi, the area of the square (2r)2.
+To simplify things, we select only a quarter of the square, which has an area 1. Using simple
+algebra we can deduce the following:
+
+Atotal = r2 = 1
+
+The area of the circle within the square is calculated as follows:
+
+Acircle = ¼ * r2 * pi
+
+We see that Pi is present in this formula so can deduce it by rearranging the original
+equation as follows:
+
+pi = 4 * (Acircle / r2) = 4 * Acircle
 '''
 import random
 import matplotlib.pyplot as plt
@@ -38,7 +54,7 @@ y = np.sin(puntos_circunferencia)
 ###############
 
 plt.plot(x, y)#Grafiamos cuarto de circulo
-PIaprox = pi2(100)#Puntos random para cacular pi
+PIaprox = pi2(250)#Puntos random para cacular pi
 
 #Etiquetas
 plt.axis('equal')  # Hacer que los ejes tengan la misma escala
