@@ -5,7 +5,7 @@ You press the button turn on and the bulb start glowing. C++ does not have any
 interface keyword, it just define some functions as abstract function by making it
 “= 0” thereby making the whole class abstract.
 */
-class BulbInterface{
+class BulbInterface{ //Esto es una abtract class
     public:
         virtual void turnOn() = 0;
         virtual void turnOff() = 0;
