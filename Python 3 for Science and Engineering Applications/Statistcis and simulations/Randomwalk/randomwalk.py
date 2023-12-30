@@ -53,7 +53,7 @@ def random_pos(position, nrows, ncolumns):
         #Nos asegruamos que la nueva posicion generada este dentro de las dimenciones
         # del plano/matriz
         if (0 <= gridpos[1] <= nrows-1) and (0 <= gridpos[0] <= ncolumns-1):
-            return position
+            return position#Regresamos la posicion actual
 
 #Teste de funcion random_pos
 #print( random_pos((0,0),2,2)) #Sí funciona
