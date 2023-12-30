@@ -1,1 +1,1 @@
-Repositorio con códigos en c/c++ y en pyhton de referencia tanto para escritorio y embebidos
+Códigos de referencia en aprendizaje y aplicaciones varias en los lenguajes de C/C++ y python emfocatos a los las biblografías con los nombres de las carpetas.
