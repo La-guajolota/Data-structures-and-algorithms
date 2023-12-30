@@ -38,7 +38,6 @@ class Circle : public Shape{
 Circle::Circle():
     Circle(1)//Inicializa al objeto con radio 1
 {}
-
 Circle::Circle(double r){
     radius = r;
 }
@@ -46,15 +45,14 @@ Circle::Circle(double r){
 void Circle::setRadius(double r){
     radius = r;
 }
-
 double Circle::area(){
     return M_PI*std::pow(radius,2);
 }
-
 double Circle::perimeter(){
     return 2 * M_PI * radius;
 }
 
+/// Rectangulo ///
 class Rectangle : public Shape{
     private:
         double width = 0, length = 0;
@@ -73,23 +71,20 @@ class Rectangle : public Shape{
 Rectangle::Rectangle() :
     Rectangle(1, 1)
 { }
-
 Rectangle::Rectangle(double w, double l){
     width = w;
     length = l;
 }
+
 void Rectangle::setWidth(double w){
     width = w;
 }
-
 void Rectangle::setLength(double l){
     length = l;
 }
-
 double Rectangle::area(){
     return width * length; // Area = width * length
 }
-
 double Rectangle::perimeter(){
     return 2 * (width + length); // Perimeter = 2(width + length)
 }

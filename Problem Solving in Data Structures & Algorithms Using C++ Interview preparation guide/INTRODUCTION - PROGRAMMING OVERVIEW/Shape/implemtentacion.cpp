@@ -17,6 +17,12 @@ int main(){
 }
 
 /*
+    Shape demo creates an instance of the Rectangle and the Circle class
+    and assign it to a pointer of type Shape. Finally area() and perimeter() functions
+    are called over instances
+*/
+
+/*
      Se crea un objeto dinámico de tipo Rectangle mediante el operador new. 
      La variable rectangle es un puntero que apunta al objeto creado en el montón 
      (heap). La notación Shape * indica que rectangle es un puntero a un objeto de
