@@ -1,4 +1,10 @@
 /*
+ * Autor: Adrián Silva Palafox
+ * Fecha: 29/12/2023
+ * Versión: 0.0.1
+ */
+
+/*
     Imprimimos los primeros numeros primos
     
     La Criba de Eratóstenes es un algoritmo eficiente para 
@@ -56,3 +62,10 @@ int main(){
     system("pasuse");
     return 0;
 }
+
+/*
+Otro refinamiento consiste en generar una lista solo con números impares 
+(pues los números pares distintos de 2 se sabe que no son primos), e ir 
+tachando los múltiplos de los números primos mediante incrementos de 2p, es decir, los 
+múltiplos impares (2k+1)p de cada primo p.
+*/

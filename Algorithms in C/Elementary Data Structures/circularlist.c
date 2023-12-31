@@ -1,9 +1,11 @@
 /*
  * Autor: Adrián Silva Palafox
  * Fecha: 30/12/2023
- * Descripción: Metodos para trabajar con listas enlazadas
- * Versión: 0.1.1
+ * Descripción: Metodos para trabajar con listas enlazadas circulares
+ *              aplicaremos la estructura para resolver el Josephus problem
+ * Versión: 0.0.1
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -15,16 +17,16 @@ struct node{//Tipo de dato nodo
 /********************************
 En este ejemplo se tendra en 
 uso la convencion de contar con 
-un nodode inicio(head) y fin(z)
+un nodode glue para hacer circular 
+la lista en lazada. Este nodo une al primer
+nodo y al ultimo nodo
 ********************************/
-struct node *head, *z, *t;//Punteros del tipo node
+struct node *glue, *t;//Punteros del tipo node
 
 void linklist_init(){//Inicializa una lista enlazada
-    head = (struct node*) malloc(sizeof(struct node));//heade apunta a un NUEVO espacio de memoria del tipo node
-    z = (struct node*) malloc(sizeof(struct node));//z apunta a un NUEVO espacio de memoria del tipo node
+    glue = (struct node*) malloc(sizeof(struct node));//heade apunta a un NUEVO espacio de memoria del tipo node
     
-    head->next = z;//head apunta a z
-    z->next = z;//z apunta asi mismo
+    glue->next = glue;
 }
 
 void delete_next(struct node *t){//Elimina el nodo singuiente del nodo al que apunta t
@@ -56,17 +58,24 @@ int main(){
     //Inicializamos el tipo de dato lista enlazada
     linklist_init();
 
-    //Agregar 1 al 10
-    struct node *aux;
-    aux = insert_after(1,head);
-    for (int i=2; i<=10; i++){
+    int N, M;
+    scanf("N personas: %d  Primera muerta M: %d", &N, &M);
+
+    //Agregar 1 al N
+    struct node *aux, *kill;
+    aux = insert_after(1,glue);
+    for (int i=2; i<=N; i++){
 
         aux = insert_after(i,aux);
+
+        if(i==M){//Nodo primero en morir
+            kill = aux;
+        }
 
     }
 
     //Revisa todos los nodos de la lista enlazada
-    aux = head->next;
+    aux = glue->next;
     do{
         
         printf("Nodo con elemento: %d\n",aux->key);
@@ -74,27 +83,13 @@ int main(){
 
         aux = aux->next;//Siguiente nodo
 
-    } while(aux->next != z->next);    
+    } while(aux->next != glue);    
     //Ultimo nodo antes de z
     printf("Nodo con elemento: %d\n",aux->key);
     printf("Nodo apunta a esta direccion: %x\n",aux->next);
 
-    printf("Borramos el nodo 3\n");
-    delete_next(head->next->next);//El tercer nodo
 
-    //Revisa todos los nodos de la lista enlazada
-    aux = head->next;
-    do{
-        
-        printf("Nodo con elemento: %d\n",aux->key);
-        printf("Nodo apunta a esta direccion: %x\n",aux->next);
-
-        aux = aux->next;//Siguiente nodo
-
-    } while(aux->next != z->next);    
-    //Ultimo nodo antes de z
-    printf("Nodo con elemento: %d\n",aux->key);
-    printf("Nodo apunta a esta direccion: %x\n",aux->next);
+    printf("SOBREVIVIMETE ES: %d", kill->key);
 
     return 0;
 }
