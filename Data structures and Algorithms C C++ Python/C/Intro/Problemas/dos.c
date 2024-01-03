@@ -1,48 +1,39 @@
 //Find the sum of all the elements of a two dimensional array
-
 #include <stdio.h>
-#define row 10
-#define col 10
 
-void populate_array(int arr[],int row,int col);//Popula el arreglo
-int avrgarray(int arr[],int row,int col);//Calcula el promedio del array
+void populate_array(int *arr,int size);//Popula el arreglo
+int avrgarray(int *arr,int size);//Calcula el promedio del array
 
 int main(){
 
-    int array[row][col], rsl;
+    int ROW=2, COL=2;
+    int array[ROW][COL], rsl;
 
-    populate_array(array, row, col);
-    rsl = avrgarray(array, row, col);
+    populate_array(*array,ROW*COL);
+    rsl = avrgarray(*array,ROW*COL);
     
-    printf("Suma total: %d",rsl);
+    printf("\nSuma total: %d",rsl);
 
     return 0;
 }
 
 //Llenamos el array con una lista de 
 //numeros en orden 
-void populate_array(int arr[], int row, int col){
+void populate_array(int *arr, int size){
 
-    int cont = 0;
     //Llenamos de elementos
-    for (int i=0; i<row; i++){//ROW
-        for (int j=0; j<col; j++){//COL
-            
-            arr[i][j] = cont++;
-        }
+    for (int i=0; i<size; i++){
+        *(arr+i)= i;
+        printf("%d+ ",*(arr+i));
     }
 
 }
 
-int avrgarray(int arr[], int row, int col){
+int avrgarray(int *arr, int size){
 
     int avrg = 0;
-
-    for (int i=0; i<row; i++){//ROW
-        for (int j=0; j<col; j++){//COL
-            
-            avrg +arr[i][j];
-        }
+    for (int i=0; i<size; i++){
+            avrg += *(arr++);
     }
 
     return avrg;//Suma total
