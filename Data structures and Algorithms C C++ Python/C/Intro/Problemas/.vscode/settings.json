@@ -1,5 +1,7 @@
 {
-    "files.associations": {
-        "1.C": "cpp"
-    }
+  "files.associations": {
+    "1.C": "cpp"
+  },
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true
 }
