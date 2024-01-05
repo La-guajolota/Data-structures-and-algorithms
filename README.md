@@ -5,3 +5,5 @@ Códigos de referencia en aprendizaje y aplicaciones varias en los lenguajes de 
 ## Estructuras de datos:
 
 ## Algoritmos:
+
+## Problemas códigos ilustrativos:
