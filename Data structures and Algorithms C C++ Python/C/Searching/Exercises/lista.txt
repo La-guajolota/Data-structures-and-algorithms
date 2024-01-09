@@ -1,0 +1,46 @@
+1. 
+Given an array of n elements, find the first repeated element. Which of the
+following methods will work for us (and which of the method will not
+work for us). If a method work, then implements it.
+· Brute force exhaustive search.
+· Use Hash-Table to keep an index of the elements and use the second
+scan to find the element.
+· Sorting the elements.
+· If we know the range of the element then we can use counting
+technique.
+Hint: When order in which elements appear in input is important, we
+cannot use sorting.
+
+2. 
+Given an array of n elements, write an algorithm to find three elements in
+an array whose sum is a given value.
+Hint: Try to do this problem using a brute force approach. Then try to
+apply the sorting approach along with a brute force approach. The Time
+Complexity will be O(n**2)
+
+3. 
+Given an array of –ve and +ve numbers, write a program to separate –ve
+numbers from the +ve numbers.
+
+4. 
+Given an array of 1’s and 0’s, write a program to separate 0’s from 1’s.
+Hint: QuickSelect, counting
+
+5. 
+Given an array of 0’s, 1’s and 2’s, write a program to separate 0’s , 1’s
+and 2’s.
+
+6. 
+Given an array whose elements is monotonically increasing with both
+negative and positive numbers. Write an algorithm to find the point at
+which list becomes positive.
+
+7. 
+Given a sorted array, find a given number. If found return the index if not,
+find the index of that number if it is inserted into the array.
+
+8. 
+Find max in sorted rotated array.
+
+9. 
+Find min in the sorted rotated array.
