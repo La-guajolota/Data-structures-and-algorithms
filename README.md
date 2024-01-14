@@ -4,6 +4,15 @@ Códigos de referencia en aprendizaje y aplicaciones varias en los lenguajes de 
 
 ## Estructuras de datos:
 
+* Arreglos
+* Listas enlazadas
+* Hash-tables
+* Árboles
+* Nódos
+
 ## Algoritmos:
 
+* Búqueda
+* Organización
+  
 ## Problemas códigos ilustrativos:
