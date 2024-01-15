@@ -2,6 +2,7 @@
   "files.associations": {
     "conio.h": "c",
     "complex.h": "c",
-    "stdint.h": "c"
+    "stdint.h": "c",
+    "limits.h": "c"
   }
 }
