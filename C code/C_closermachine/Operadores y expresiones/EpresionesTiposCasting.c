@@ -35,5 +35,10 @@ int main()
     long long mylong = (long long)INTIGER + (long long)myUnsigned;
     printf("%lld \n", mylong);
 
+    // Quinto ejemplo
+    int A = -1;
+    unsigned int myVar3 = (unsigned int)myVar3;
+    printf("int %d ->>> unsigned int %d\n", A, myVar3);
+
     return 0;
 }
