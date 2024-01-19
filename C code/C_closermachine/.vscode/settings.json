@@ -3,6 +3,7 @@
     "conio.h": "c",
     "complex.h": "c",
     "stdint.h": "c",
-    "limits.h": "c"
+    "limits.h": "c",
+    "stdio.h": "c"
   }
 }
