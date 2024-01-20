@@ -10,7 +10,7 @@ struct myStruct
 int main()
 {
     struct myStruct me;
-    struct myStruct person = {.name = "Juan", .age = 9999};
+    struct myStruct person;
 
     me.age = 21;
     /*
@@ -19,6 +19,9 @@ int main()
         !string literal
     */
     strcpy(me.name, "Adrián");
+    person = me;
 
-        return 0;
+    printf("%d %d\n", me.age, person.age);
+
+    return 0;
 }
