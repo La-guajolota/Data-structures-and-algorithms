@@ -4,6 +4,8 @@
     "complex.h": "c",
     "stdint.h": "c",
     "limits.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "stdlib.h": "c",
+    "rOTE.C": "cpp"
   }
 }
