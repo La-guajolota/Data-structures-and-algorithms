@@ -20,14 +20,47 @@ Return to (1).
 #include <stdio.h>
 #include <stdint.h>
 
-uint16_t binary = 0xFF; // Numero en binario (ejemplo: 1111 1111)
-uint8_t BCD[4] = {0};   // Arreglo para el codigo BCD
+/*
+MODIFICABLES
+!Solo regresa unidades, decenas, y centenas
+*/
+uint16_t binary = 255; // Numero en binario (ejemplo: 1111 1111)
+
+/*
+Prototipado de la funcion principal
+*/
+void BINARY_TO_BCD(uint16_t binary, uint8_t *BCD);
 
 int main()
 {
+
+    uint8_t BCD[4] = {0}; // Arreglo para el codigo BCD
+
+    BINARY_TO_BCD(binary, BCD); // HACEMOS LA CONVERSION
+
+    // Mostrar el codigo BCD resultante
+    printf("Codigo BCD del numero %d:\n", binary);
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%x ", BCD[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+/**
+ * @brief Combierte un numero binario en sus digitos Decimale
+ *        Pasa de binario a codigificacion BCD
+ *
+ * @param binary uint16_t numero a comberit
+ * @param BCD uint8_t * arreglo de almentos 4 espacios
+ */
+void BINARY_TO_BCD(uint16_t binary, uint8_t *BCD)
+{
     uint8_t pos_msb = 15; // Inicializamos la posicion del MSB (máximo 15 para uint16_t)
 
-    // Encontramos la posicion del bit más significativo (MSB)
+    // *Encontramos la posicion del bit más significativo (MSB)
     while (!(binary & (0x01 << pos_msb)))
     {
         pos_msb--;
@@ -41,7 +74,7 @@ int main()
     uint8_t shift_count = 0;
     do
     {
-        buffer_bin <<= 1; // Paso 1
+        buffer_bin <<= 1; // *Paso 1
         shift_count++;
 
         // Revisar cada dígito BCD
@@ -61,14 +94,4 @@ int main()
         }
 
     } while (shift_count <= pos_msb); // Paso 2
-
-    // Mostrar el codigo BCD resultante
-    printf("Codigo BCD del numero %d:\n", binary);
-    for (int i = 0; i < 4; i++)
-    {
-        printf("%x ", BCD[i]);
-    }
-    printf("\n");
-
-    return 0;
 }
