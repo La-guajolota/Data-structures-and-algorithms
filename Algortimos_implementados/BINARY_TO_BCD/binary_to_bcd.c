@@ -1,5 +1,7 @@
-/*
+#include <stdio.h>
+#include <stdint.h>
 
+/*
 1-
 Left-shift the (n-bit) binary
 number one bit.
@@ -17,34 +19,52 @@ columns is greater than or equal to 5, add 3.
 Return to (1).
 */
 
-#include <stdio.h>
-#include <stdint.h>
-
-/*
-MODIFICABLES
-!Solo regresa unidades, decenas, y centenas
-*/
-uint16_t binary = 255; // Numero en binario (ejemplo: 1111 1111)
-
 /*
 Prototipado de la funcion principal
 */
 void BINARY_TO_BCD(uint16_t binary, uint8_t *BCD);
+uint8_t BCD_TO_SEVEN_SEGMENT(uint8_t BCD);
+void binary_print(uint8_t num);
 
 int main()
 {
+    uint16_t binary_input; // Variable para almacenar el número binario ingresado por el usuario
+    uint8_t BCD[4] = {0};  // Arreglo para el código BCD
 
-    uint8_t BCD[4] = {0}; // Arreglo para el codigo BCD
+    // Pedir al usuario que ingrese el número binario
+    printf("Ingrese un numero binario de 16 bits: ");
+    scanf("%hu", &binary_input);
 
-    BINARY_TO_BCD(binary, BCD); // HACEMOS LA CONVERSION
+    printf("Ingreso: ");
+    binary_print(binary_input);
+    printf("\n");
 
-    // Mostrar el codigo BCD resultante
-    printf("Codigo BCD del numero %d:\n", binary);
+    BINARY_TO_BCD(binary_input, BCD); // Convertir el número binario ingresado a BCD
+
+    // Mostrar el código BCD resultante
+    printf("Codigo BCD del numero %hu:\n", binary_input);
     for (int i = 0; i < 4; i++)
     {
         printf("%x ", BCD[i]);
     }
-    printf("\n");
+    printf("\nCodificacion BCD\n");
+
+    printf("\nCodificacion en 7 segmentos\n");
+
+    // Mostrar el código BCD resultante
+    printf("Codigo BCD del numero %hu:\n", binary_input);
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%x ", BCD[i]);
+    }
+
+    // Imprime el codigo de 7 segmentos
+    // Imprime los mismo digitos pero en binario
+    for (int i = 0; i < 4; i++)
+    {
+        binary_print(BCD_TO_SEVEN_SEGMENT(BCD[i]));
+        printf(" ");
+    }
 
     return 0;
 }
@@ -94,4 +114,50 @@ void BINARY_TO_BCD(uint16_t binary, uint8_t *BCD)
         }
 
     } while (shift_count <= pos_msb); // Paso 2
+}
+
+/**
+ * @brief Regresa el codigo de 7 segmentos desde
+ *        un numero BCD
+ * @param BCD
+ * @return uint8_t codio de 7 segmentos
+ */
+uint8_t BCD_TO_SEVEN_SEGMENT(uint8_t BCD)
+{
+    uint8_t lookup[] = {
+        0b1111110, // 0
+        0b0110000, // 1
+        0b1101101, // 2
+        0b1111001, // 3
+        0b0110011, // 4
+        0b1011011, // 5
+        0b1011111, // 6
+        0b1110000, // 7
+        0b1111111, // 8
+        0b1111011  // 9
+    };
+
+    return lookup[BCD];
+}
+
+/**
+ * @brief Imprime en formato binario algun numero de 8 bits
+ *
+ * @param num
+ * @return * void
+ */
+void binary_print(uint8_t num)
+{
+
+    for (int i = 0; i < 8; i++)
+    {
+        if ((num & (0x80 >> i)) << i)
+        {
+            printf("1");
+        }
+        else
+        {
+            printf("0");
+        }
+    }
 }
