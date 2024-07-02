@@ -2,7 +2,7 @@ import tkinter as tk
 import ctypes
 
 # Cargar la biblioteca compartida (DLL en Windows)
-lib_bin = ctypes.CDLL("D:/Progrmacion/Algortimos_implementados/BINARY_TO_BCD/binary_utils.dll")
+lib_bin = ctypes.CDLL("D:/Progrmacion/Algortimos_implementados/MCU_GENERAL_UTILS/BINARY_TO_BCD/binary_utils.dll")
 
 # Definir los tipos de datos de entrada y salida de las funciones importadas
 lib_bin.BINARY_TO_BCD.argtypes = [ctypes.c_uint16, ctypes.POINTER(ctypes.c_uint8)]
